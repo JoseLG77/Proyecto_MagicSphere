@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AudioSettingsData", menuName = "ScriptableObjects/AudioSettingsData", order = 1)]
+[CreateAssetMenu(fileName = "AudioSettingsData", menuName = "AudioSettings/AudioSettingsData", order = 1)]
 public class AudioSettingsData : ScriptableObject
 {
     [Range(0.0001f, 1f)] public float masterVolume = 0.75f;
