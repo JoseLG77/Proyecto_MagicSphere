@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e8499b7bb0c2ff047bb6f519cdf7c87c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: dccf8a28221ca074782bbd46a4d811a5, type: 2}
+      objectReference: {fileID: 2100000, guid: 3f2484a7e2d916749aa08c5ac13612aa, type: 2}
     - target: {fileID: 919132149155446097, guid: e8499b7bb0c2ff047bb6f519cdf7c87c, type: 3}
       propertyPath: m_Name
       value: Cadena
