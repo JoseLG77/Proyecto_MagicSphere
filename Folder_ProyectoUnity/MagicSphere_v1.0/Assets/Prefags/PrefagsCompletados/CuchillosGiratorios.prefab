@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[3]'
       value: 
       objectReference: {fileID: 2100000, guid: d3faf5036af65ff469a6960e677ccf1f, type: 2}
+    - target: {fileID: 7742780737561719692, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
+      propertyPath: m_Name
+      value: plataforma
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487167654232718067, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
+      propertyPath: m_Name
+      value: cuchillos
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84,7 +92,7 @@ PrefabInstance:
       addedObject: {fileID: 6087205101663089690}
     - targetCorrespondingSourceObject: {fileID: 8487167654232718067, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1525934031111148617}
+      addedObject: {fileID: 2482525403772979931}
   m_SourcePrefab: {fileID: 100100000, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
 --- !u!1 &2896780780898164833 stripped
 GameObject:
@@ -113,7 +121,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -951608786083511892, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
---- !u!114 &1525934031111148617
+--- !u!114 &2482525403772979931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,10 +130,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2896780780898164833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df99a314219eae438a04be2acc4c0d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9eb5528031b5606419ce92c32e71d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationVelocity: {x: 0, y: 0, z: -500}
+  thrustForce: 2
+  explosionRadius: 5
+  RotationVelocity: {x: 0, y: 0, z: 500}
 --- !u!1 &3929662017127754014 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7742780737561719692, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
