@@ -133,9 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb5528031b5606419ce92c32e71d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBehaverSkewers: 0
+  traveDirectionSpeed: {x: 0, y: 0, z: 0}
+  OnBehavierRotation: 1
+  directionVecocity: {x: 0, y: 0, z: 50}
   thrustForce: 2
   explosionRadius: 5
-  RotationVelocity: {x: 0, y: 0, z: 500}
 --- !u!1 &3929662017127754014 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7742780737561719692, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}

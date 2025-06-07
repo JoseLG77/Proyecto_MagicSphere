@@ -4,13 +4,19 @@ public class ObstaclesController : MonoBehaviour
 {
     [Header("Skewers")]
     [SerializeField] private bool OnBehaverSkewers = false;
-    [Range(0.1f, 1)] private float MovDistance = 0.5f;
+    [SerializeField] private float velocity = 1;
+    [Range(0.1f, 2)] public float distance;
 
-    [Header("Baci")]
-    [SerializeField] private float thrustForce;
+    [Header("Rotation")]
+    [SerializeField] private bool OnBehavierRotation = false;
+    [SerializeField] private Vector3 directionVecocity;
+
+    [Header("Behavir Basic")]
+    [SerializeField] private float thrustForce = 2;
     [SerializeField] private float explosionRadius = 5f;
 
     private Vector3 savePosition;
+    private bool UpDown = true;
     void Start()
     {
         savePosition = transform.position;
@@ -19,7 +25,8 @@ public class ObstaclesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        RotationObject();
+        Spikes();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -32,5 +39,38 @@ public class ObstaclesController : MonoBehaviour
     public void PushPlayer(Rigidbody player)
     {
         player.AddExplosionForce(thrustForce * 100, transform.position, explosionRadius);
+    }
+    public void RotationObject()
+    {
+        if (!OnBehavierRotation) return;
+        Quaternion rotation = Quaternion.Euler(directionVecocity * Time.deltaTime);
+        transform.rotation *= rotation;
+    }
+    public void Spikes()
+    {
+        if(!OnBehaverSkewers) return;
+
+        float minY = savePosition.y;
+        float maxY = savePosition.y + distance;
+
+        if (UpDown)
+        {
+            transform.position += new Vector3(0, (velocity * 7) * Time.deltaTime, 0);
+
+            if (transform.position.y >= maxY)
+            {
+                UpDown = false;
+                Debug.Log("Arriba");
+            }
+        }
+        else
+        {
+            transform.position -= new Vector3(0, velocity * Time.deltaTime, 0);
+            if (transform.position.y <= minY)
+            {
+                UpDown = true;
+            }
+            Debug.Log("Abajo");
+        }
     }
 }
