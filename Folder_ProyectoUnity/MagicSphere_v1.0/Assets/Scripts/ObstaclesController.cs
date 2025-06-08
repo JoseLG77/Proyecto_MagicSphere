@@ -36,16 +36,26 @@ public class ObstaclesController : MonoBehaviour
             PushPlayer(player);
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Rigidbody player = collision.gameObject.GetComponent<Rigidbody>();
+            Invoke("ResetVelocityObjectPush", 0.5f);
+        }
+    }
     public void PushPlayer(Rigidbody player)
     {
         player.AddExplosionForce(thrustForce * 100, transform.position, explosionRadius);
     }
+    //Comportamiento de los ostaculos que rotan
     public void RotationObject()
     {
         if (!OnBehavierRotation) return;
         Quaternion rotation = Quaternion.Euler(directionVecocity * Time.deltaTime);
         transform.rotation *= rotation;
     }
+    //Comportamiento de los pinchos
     public void Spikes()
     {
         if(!OnBehaverSkewers) return;
@@ -72,5 +82,9 @@ public class ObstaclesController : MonoBehaviour
             }
             Debug.Log("Abajo");
         }
+    }
+    private void ResetVelocityObjectPush(Rigidbody objectCollision)
+    {
+        objectCollision.linearVelocity = Vector3.zero;
     }
 }
