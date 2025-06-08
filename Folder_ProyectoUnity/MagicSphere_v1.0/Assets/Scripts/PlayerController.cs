@@ -5,15 +5,17 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool OnMovement;
     [SerializeField] private float speed;
-    //[SerializeField] private float Vf = 10; //Velocidad Final.
-    //[SerializeField] private float TimeVf = 5; //Tiempo para que llegue a la velocidad final.
+    [SerializeField] private float velocityMax = 5; //Velocidad Final.
+    [SerializeField] private float acceleration = 5; //Tiempo para que llegue a la velocidad final.
     //[SerializeField] private float acceleration; //Aceleracion 
     [SerializeField] private float jumpForce;
 
     //private float Vi = 0; //Velocidad inicial. 
     //private float currentTime = 0;
     private bool isJump;
-    [SerializeField]private Vector2 direction;
+    private Vector2 direction;
+    private Vector2 directionVelocityMax;
+    private Vector2 directionCurrentVelocity;
     private Rigidbody rb;
 
     /*public float CurrentTime
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //acceleration = Vf / TimeVf;
+        directionVelocityMax = new Vector2(velocityMax, velocityMax);
     }
 
     // Update is called once per frame
@@ -38,22 +40,22 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (OnMovement && isJump)
+        /*if (OnMovement && isJump)
         {
             Vector3 dir = new Vector3(direction.x, rb.linearVelocity.y, direction.y);
             rb.AddForce(dir * speed);
-        }
-        /*if (OnMovement)
-        {
-            if (currentTime < TimeVf)
-            {
-                currentTime += Time.deltaTime;
-
-                float velocidadActual = acceleration * currentTime;
-                Vector3 dir = new Vector3(direction.x * velocidadActual, rb.linearVelocity.y, direction.y * velocidadActual);
-                rb.linearVelocity = dir;
-            }
         }*/
+        if (OnMovement)
+        {
+            directionCurrentVelocity +=  direction * acceleration * Time.deltaTime;
+            
+            directionCurrentVelocity.x = Mathf.Clamp(directionCurrentVelocity.x, -directionVelocityMax.x, directionVelocityMax.x);
+            directionCurrentVelocity.y = Mathf.Clamp(directionCurrentVelocity.y, -directionVelocityMax.y, directionVelocityMax.y);
+            //Mathf.Clamp es una funciones de unity, la cual limita un valor dentro de un rango minimo y maximo
+
+            Vector3 mov = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
+            rb.linearVelocity = mov;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {

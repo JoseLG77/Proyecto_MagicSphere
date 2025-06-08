@@ -13,5 +13,4 @@ public class LevelGraphData : MonoBehaviour
             next.isUnlocked = true;
         }
     }
-
 }

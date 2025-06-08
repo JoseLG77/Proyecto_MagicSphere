@@ -41,7 +41,6 @@ public class ObstaclesController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody player = collision.gameObject.GetComponent<Rigidbody>();
-            Invoke("ResetVelocityObjectPush", 0.5f);
         }
     }
     public void PushPlayer(Rigidbody player)
@@ -82,9 +81,5 @@ public class ObstaclesController : MonoBehaviour
             }
             Debug.Log("Abajo");
         }
-    }
-    private void ResetVelocityObjectPush(Rigidbody objectCollision)
-    {
-        objectCollision.linearVelocity = Vector3.zero;
     }
 }
