@@ -3,13 +3,16 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
+using UnityEditor;
 
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private string nameScene;
+    [SerializeField] private GameObject MenuPanel;
     [SerializeField] private GameObject SettingsPanel;
     void Start()
     {
+        MenuPanel.SetActive(true);
         SettingsPanel.SetActive(false);
     }
 
@@ -24,7 +27,13 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonSettings()
     {
+        MenuPanel.SetActive(false);
         SettingsPanel.SetActive(true);
+    }
+    public void ButtonBackMenu([SerializeField] GameObject DesactivetPanel)
+    {
+        DesactivetPanel.SetActive(false);
+        MenuPanel.SetActive(true);
     }
     public void ExitButton()
     {

@@ -4,11 +4,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool OnMovement;
-    [SerializeField] private float speed;
+    //[SerializeField] private float speed;
     [SerializeField] private float velocityMax = 5; //Velocidad Final.
     [SerializeField] private float acceleration = 5; //Tiempo para que llegue a la velocidad final.
-    //[SerializeField] private float acceleration; //Aceleracion 
     [SerializeField] private float jumpForce;
+    [SerializeField] private Transform checkPoint;
 
     //private float Vi = 0; //Velocidad inicial. 
     //private float currentTime = 0;
@@ -62,6 +62,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isJump = true;
+        }
+        if (collision.gameObject.CompareTag("Limit"))
+        {
+            OnMovement = false;
+            rb.linearVelocity = Vector3.zero;
+            transform.position = checkPoint.position;
         }
     }
     private void OnCollisionExit(Collision collision)
