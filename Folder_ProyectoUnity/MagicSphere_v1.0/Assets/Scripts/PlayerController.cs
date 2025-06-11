@@ -4,28 +4,16 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool OnMovement;
-    //[SerializeField] private float speed;
     [SerializeField] private float velocityMax = 5; //Velocidad Final.
     [SerializeField] private float acceleration = 5; //Tiempo para que llegue a la velocidad final.
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform checkPoint;
 
-    //private float Vi = 0; //Velocidad inicial. 
-    //private float currentTime = 0;
     private bool isJump;
     private Vector2 direction;
     private Vector2 directionVelocityMax;
     private Vector2 directionCurrentVelocity;
     private Rigidbody rb;
-
-    /*public float CurrentTime
-    {
-        set
-        {
-            if (value > TimeVf) return;
-            currentTime = value;
-        }
-    }*/
 
     void Start()
     {
@@ -40,11 +28,6 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        /*if (OnMovement && isJump)
-        {
-            Vector3 dir = new Vector3(direction.x, rb.linearVelocity.y, direction.y);
-            rb.AddForce(dir * speed);
-        }*/
         if (OnMovement)
         {
             directionCurrentVelocity +=  direction * acceleration * Time.deltaTime;

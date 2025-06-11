@@ -1,3 +1,4 @@
+using UnityEditor.TerrainTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,11 +7,13 @@ public class ChangeSceneLevel : MonoBehaviour
     [SerializeField] private NodeLevelData levelData;
 
     private Renderer _renderer;
+    Material[] mats;
     private bool isMouse = false;
 
     private void Start()
     {
         _renderer = GetComponent<Renderer>();
+        mats = _renderer.materials;
     }
     private void Update()
     {
@@ -20,11 +23,13 @@ public class ChangeSceneLevel : MonoBehaviour
         {
             if (levelData.isUnlocked)//Si el nivel esta desbloqueado
             {
-                _renderer.material = levelData.Unlocked;
+                mats[1] = levelData.Unlocked;
+                _renderer.materials = mats;
             }
             else
             {
-                _renderer.material = levelData.Blocked;
+                mats[1] = levelData.Blocked;
+                _renderer.materials = mats;
             }
         }
     }
@@ -45,7 +50,8 @@ public class ChangeSceneLevel : MonoBehaviour
         isMouse = true;
         if (levelData.isUnlocked)
         {
-            _renderer.material = levelData.Select;
+            mats[1] = levelData.Select;
+            _renderer.materials = mats;
         }
     }
     private void OnMouseExit()
