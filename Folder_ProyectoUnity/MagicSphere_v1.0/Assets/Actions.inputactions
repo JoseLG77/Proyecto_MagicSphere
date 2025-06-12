@@ -24,9 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeMesh",
+                    "name": "ChangeShapePrev",
                     "type": "Button",
                     "id": "1decdc23-9859-4fcc-a468-3a4e6efca656",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeShapeNext",
+                    "type": "Button",
+                    "id": "88efb783-d7ef-4971-a54b-bd4960206f0c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -107,18 +116,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeMesh",
+                    "action": "ChangeShapePrev",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "acad224f-d183-4c68-a152-886b27fae763",
+                    "id": "6daeb964-8373-4ac7-acfb-a52a48c3051c",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeMesh",
+                    "action": "ChangeShapeNext",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
