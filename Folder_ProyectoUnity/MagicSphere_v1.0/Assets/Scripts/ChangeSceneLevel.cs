@@ -7,13 +7,13 @@ public class ChangeSceneLevel : MonoBehaviour
     [SerializeField] private NodeLevelData levelData;
 
     private Renderer _renderer;
-    Material[] mats;
+    private Material[] materials;
     private bool isMouse = false;
 
     private void Start()
     {
         _renderer = GetComponent<Renderer>();
-        mats = _renderer.materials;
+        materials = _renderer.materials;
     }
     private void Update()
     {
@@ -23,13 +23,13 @@ public class ChangeSceneLevel : MonoBehaviour
         {
             if (levelData.isUnlocked)//Si el nivel esta desbloqueado
             {
-                mats[1] = levelData.Unlocked;
-                _renderer.materials = mats;
+                materials[1] = levelData.Unlocked;
+                _renderer.materials = materials;
             }
             else
             {
-                mats[1] = levelData.Blocked;
-                _renderer.materials = mats;
+                materials[1] = levelData.Blocked;
+                _renderer.materials = materials;
             }
         }
     }
@@ -38,7 +38,7 @@ public class ChangeSceneLevel : MonoBehaviour
     {
         if (levelData.isUnlocked)
         {
-            Invoke("ChangeLevel", 1.5f);
+            Invoke("ChangeLevel", 1f);
         }
         else
         {
@@ -50,8 +50,8 @@ public class ChangeSceneLevel : MonoBehaviour
         isMouse = true;
         if (levelData.isUnlocked)
         {
-            mats[1] = levelData.Select;
-            _renderer.materials = mats;
+            materials[1] = levelData.Select;
+            _renderer.materials = materials;
         }
     }
     private void OnMouseExit()

@@ -1,12 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Properties
+    [Header("Statistics")]
     [SerializeField] private bool OnMovement;
     [SerializeField] private float velocityMax = 5; //Velocidad Final.
     [SerializeField] private float acceleration = 5; //Tiempo para que llegue a la velocidad final.
     [SerializeField] private float jumpForce;
+    [Header("CheckPoint")]
     [SerializeField] private Transform checkPoint;
 
     private bool isJump;
@@ -14,7 +18,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 directionVelocityMax;
     private Vector2 directionCurrentVelocity;
     private Rigidbody rb;
+    #endregion
 
+    #region UnityMethods
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,8 +30,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
     private void FixedUpdate()
     {
         if (OnMovement)
@@ -60,6 +67,9 @@ public class PlayerController : MonoBehaviour
             isJump = false;
         }
     }
+    #endregion
+
+    #region PlayerInputAction
     public void Movement(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
@@ -71,4 +81,27 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * 100 * jumpForce);
         }
     }
+    public void ChangeShapeNext(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+
+        }
+    }
+    public void ChangeShapePrev(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+
+        }
+    }
+    #endregion
+
+    #region Methods
+    private void ChangeShape()
+    {
+
+    }
+
+    #endregion
 }
