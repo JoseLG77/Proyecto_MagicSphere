@@ -26,11 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-<<<<<<< HEAD
   m_SkyboxMaterial: {fileID: 2100000, guid: e6adadcad7ae7b748a5775423bdd07bd, type: 2}
-=======
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
->>>>>>> lequernaqueGalvez
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -98,11 +94,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 03fb440626966b74183c47f0e9317b70, type: 2}
-<<<<<<< HEAD
   m_LightingSettings: {fileID: 4890085278179872738, guid: a5e7c258c5cbef047a15437ea053a021, type: 2}
-=======
-  m_LightingSettings: {fileID: 0}
->>>>>>> lequernaqueGalvez
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -236,8 +228,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39556154}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-=======
->>>>>>> lequernaqueGalvez
 --- !u!1001 &46976551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,13 +308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcoYFlecha
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 919132149155446097, guid: bdddc075efad4f24d821b29e96c94300, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-=======
->>>>>>> lequernaqueGalvez
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -417,22 +404,15 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: cbfdb9185f93d9b40a62bb56d7f7b922, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 2100000, guid: 4459c41641cd36e41921c0efa9d1266d, type: 2}
-=======
-      objectReference: {fileID: 2100000, guid: 3df27a76661e88e4ca42caf7ab82cfdc, type: 2}
->>>>>>> lequernaqueGalvez
     - target: {fileID: 919132149155446097, guid: cbfdb9185f93d9b40a62bb56d7f7b922, type: 3}
       propertyPath: m_Name
       value: PuenteColganteMS
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 919132149155446097, guid: cbfdb9185f93d9b40a62bb56d7f7b922, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-=======
->>>>>>> lequernaqueGalvez
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -499,13 +479,10 @@ PrefabInstance:
       value: CalderoMSv5
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b88d4bf0b606c246aa947e9fe89ae53, type: 3}
-<<<<<<< HEAD
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b88d4bf0b606c246aa947e9fe89ae53, type: 3}
-=======
->>>>>>> lequernaqueGalvez
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -685,11 +662,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5d24213d520cdb14aad67b08600b64a6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 2100000, guid: 4459c41641cd36e41921c0efa9d1266d, type: 2}
-=======
-      objectReference: {fileID: 2100000, guid: 3df27a76661e88e4ca42caf7ab82cfdc, type: 2}
->>>>>>> lequernaqueGalvez
     - target: {fileID: -7511558181221131132, guid: 5d24213d520cdb14aad67b08600b64a6, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -698,13 +671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SillaMS
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 919132149155446097, guid: 5d24213d520cdb14aad67b08600b64a6, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-=======
->>>>>>> lequernaqueGalvez
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -771,7 +741,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: e62daba356a65454f9e649f43be1afe0, type: 3}
-<<<<<<< HEAD
       propertyPath: m_Materials.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -783,15 +752,6 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 4459c41641cd36e41921c0efa9d1266d, type: 2}
-=======
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: a8905186a4923c7469fff82cea4f7ff8, type: 2}
-    - target: {fileID: -7511558181221131132, guid: e62daba356a65454f9e649f43be1afe0, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3df27a76661e88e4ca42caf7ab82cfdc, type: 2}
->>>>>>> lequernaqueGalvez
     - target: {fileID: -7511558181221131132, guid: e62daba356a65454f9e649f43be1afe0, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
@@ -805,13 +765,10 @@ PrefabInstance:
       value: CofreMSv3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e62daba356a65454f9e649f43be1afe0, type: 3}
-<<<<<<< HEAD
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e62daba356a65454f9e649f43be1afe0, type: 3}
-=======
->>>>>>> lequernaqueGalvez
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -820,8 +777,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e62daba356a65454f9e649f43be1afe0, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!1001 &700315430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,7 +947,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae42054143acadd46b7ef64348209bd5, type: 3}
->>>>>>> lequernaqueGalvez
 --- !u!1 &1040142051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,23 +1155,16 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b2ebab1545c05d84e99ab2fd21d94be4, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 2100000, guid: 4459c41641cd36e41921c0efa9d1266d, type: 2}
-=======
-      objectReference: {fileID: 2100000, guid: 3df27a76661e88e4ca42caf7ab82cfdc, type: 2}
->>>>>>> lequernaqueGalvez
     - target: {fileID: 919132149155446097, guid: b2ebab1545c05d84e99ab2fd21d94be4, type: 3}
       propertyPath: m_Name
       value: PozoMSv2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2ebab1545c05d84e99ab2fd21d94be4, type: 3}
-<<<<<<< HEAD
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2ebab1545c05d84e99ab2fd21d94be4, type: 3}
-=======
->>>>>>> lequernaqueGalvez
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1226,7 +1173,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2ebab1545c05d84e99ab2fd21d94be4, type: 3}
-<<<<<<< HEAD
 --- !u!1 &1349400905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,8 +1281,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349400905}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-=======
->>>>>>> lequernaqueGalvez
 --- !u!1001 &1363158302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1359,11 +1303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 35990499ca63a8f4b9678a67c0883787, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 3.693
-=======
-      value: 3.303
->>>>>>> lequernaqueGalvez
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 35990499ca63a8f4b9678a67c0883787, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1404,29 +1344,20 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 35990499ca63a8f4b9678a67c0883787, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 2100000, guid: 1b6b9814529c28d40a7dcd449ff7c099, type: 2}
-=======
-      objectReference: {fileID: 2100000, guid: 9ee320b2d90ebab4cb6023d5114bc3e2, type: 2}
->>>>>>> lequernaqueGalvez
     - target: {fileID: 919132149155446097, guid: 35990499ca63a8f4b9678a67c0883787, type: 3}
       propertyPath: m_Name
       value: EscudoMSv2
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 919132149155446097, guid: 35990499ca63a8f4b9678a67c0883787, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-=======
->>>>>>> lequernaqueGalvez
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35990499ca63a8f4b9678a67c0883787, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!1001 &1388833912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1509,7 +1440,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9d9a09f9c10385e4f84956bab52c47ea, type: 3}
   m_PrefabInstance: {fileID: 1388833912}
   m_PrefabAsset: {fileID: 0}
->>>>>>> lequernaqueGalvez
 --- !u!1 &1462065490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,7 +1548,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &1584511738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,8 +1788,6 @@ Transform:
   - {fileID: 1584511739}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> lequernaqueGalvez
 --- !u!1 &1720864291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,11 +1972,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b55d89eac6d8d81428d1b80e1be1c2d4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 2100000, guid: 4459c41641cd36e41921c0efa9d1266d, type: 2}
-=======
-      objectReference: {fileID: 2100000, guid: 3df27a76661e88e4ca42caf7ab82cfdc, type: 2}
->>>>>>> lequernaqueGalvez
     - target: {fileID: -7511558181221131132, guid: b55d89eac6d8d81428d1b80e1be1c2d4, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -2096,12 +2019,7 @@ Transform:
   m_LocalPosition: {x: 5.284, y: 2.574541, z: 3.241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-<<<<<<< HEAD
   m_Children: []
-=======
-  m_Children:
-  - {fileID: 1388833913}
->>>>>>> lequernaqueGalvez
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1929800534
@@ -2155,11 +2073,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c84175e4a5f2ceb44b5035b8051ff56f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 2100000, guid: 3f2484a7e2d916749aa08c5ac13612aa, type: 2}
-=======
-      objectReference: {fileID: 2100000, guid: a8905186a4923c7469fff82cea4f7ff8, type: 2}
->>>>>>> lequernaqueGalvez
     - target: {fileID: -7511558181221131132, guid: c84175e4a5f2ceb44b5035b8051ff56f, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -2173,13 +2087,10 @@ PrefabInstance:
       value: CalderoMSv6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c84175e4a5f2ceb44b5035b8051ff56f, type: 3}
-<<<<<<< HEAD
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c84175e4a5f2ceb44b5035b8051ff56f, type: 3}
-=======
->>>>>>> lequernaqueGalvez
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2351,28 +2262,20 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 82a0b6363b7f5a64eb49c0a980bde1e0, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 2100000, guid: 4459c41641cd36e41921c0efa9d1266d, type: 2}
-=======
-      objectReference: {fileID: 2100000, guid: 3df27a76661e88e4ca42caf7ab82cfdc, type: 2}
->>>>>>> lequernaqueGalvez
     - target: {fileID: 919132149155446097, guid: 82a0b6363b7f5a64eb49c0a980bde1e0, type: 3}
       propertyPath: m_Name
       value: PuenteRecto
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 919132149155446097, guid: 82a0b6363b7f5a64eb49c0a980bde1e0, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-=======
->>>>>>> lequernaqueGalvez
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82a0b6363b7f5a64eb49c0a980bde1e0, type: 3}
-<<<<<<< HEAD
 --- !u!1 &2111548190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,8 +2571,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff5429892606fb46a4a1fa8069e204b, type: 3}
-=======
->>>>>>> lequernaqueGalvez
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2679,11 +2580,7 @@ SceneRoots:
   - {fileID: 1462065494}
   - {fileID: 1964877339}
   - {fileID: 298123266}
-<<<<<<< HEAD
   - {fileID: 2515324721441577370}
-=======
-  - {fileID: 700315430}
->>>>>>> lequernaqueGalvez
   - {fileID: 264211911}
   - {fileID: 513582010}
   - {fileID: 1113759489}
@@ -2691,17 +2588,10 @@ SceneRoots:
   - {fileID: 1363158302}
   - {fileID: 420084107}
   - {fileID: 103653146}
-<<<<<<< HEAD
   - {fileID: 5349128395283277353}
-=======
-  - {fileID: 952225539}
->>>>>>> lequernaqueGalvez
   - {fileID: 1854585827}
   - {fileID: 46976551}
   - {fileID: 2100318261}
   - {fileID: 244735214}
-<<<<<<< HEAD
   - {fileID: 3912213373634267441}
   - {fileID: 1604210911}
-=======
->>>>>>> lequernaqueGalvez
