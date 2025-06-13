@@ -296,6 +296,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6122110843864797275, guid: 797d0546d16dc464aa13d164adf99e38, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 7428857111059276301, guid: 797d0546d16dc464aa13d164adf99e38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66.2

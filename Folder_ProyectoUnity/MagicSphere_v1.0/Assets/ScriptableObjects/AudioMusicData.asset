@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixer: {fileID: 788568572222891302, guid: a504a3f4d853b394f96ca04bd373be9e, type: 2}
   EndLevel: {fileID: 0}
-  musicClip: []
+  musicClip:
+  - {fileID: 8300000, guid: de1d9a6fbbf49024895d7e32c5a241e4, type: 3}
+  - {fileID: 8300000, guid: f43de3ad03ad26744966ac72547b8c68, type: 3}
+  - {fileID: 8300000, guid: e097196ff25d71c428386b5d10539e51, type: 3}

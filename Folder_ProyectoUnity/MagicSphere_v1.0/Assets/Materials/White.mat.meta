@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: c7e3278e5d562744e9278af947d3f1bc
 NativeFormatImporter:
   externalObjects: {}
+<<<<<<< HEAD
   mainObjectFileID: 0
+=======
+  mainObjectFileID: 2100000
+>>>>>>> lequernaqueGalvez
   userData: 
   assetBundleName: 
   assetBundleVariant: 
