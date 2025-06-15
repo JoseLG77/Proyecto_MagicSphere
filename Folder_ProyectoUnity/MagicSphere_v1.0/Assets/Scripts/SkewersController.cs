@@ -40,7 +40,6 @@ public class SkewersController : BaseObstacles
             if (transform.position.y >= maxY)
             {
                 UpDown = false;
-                Debug.Log("Arriba");
             }
         }
         else
@@ -50,7 +49,6 @@ public class SkewersController : BaseObstacles
             {
                 UpDown = true;
             }
-            Debug.Log("Abajo");
         }
     }
 }

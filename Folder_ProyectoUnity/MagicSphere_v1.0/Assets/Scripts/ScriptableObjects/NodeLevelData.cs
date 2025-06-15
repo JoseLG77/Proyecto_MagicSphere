@@ -5,8 +5,10 @@ using UnityEngine;
 public class NodeLevelData : ScriptableObject
 {
     public string levelName;
-    public NodeLevelData nextLevels;
+    public List<NodeLevelData> nextLevels;
     public bool isUnlocked = false;
+
+    [Header("Materials")]
     public Material Blocked;
     public Material Unlocked;
     public Material Select;

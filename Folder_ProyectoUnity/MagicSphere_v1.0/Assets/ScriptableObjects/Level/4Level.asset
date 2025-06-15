@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 4Level
   m_EditorClassIdentifier: 
   levelName: Level4
-  nextLevels: {fileID: 11400000}
+  nextLevels:
+  - {fileID: 11400000}
   isUnlocked: 0
   Blocked: {fileID: 2100000, guid: efb7d9382b62ccd4ca3eba2efd76804a, type: 2}
   Unlocked: {fileID: 2100000, guid: fc343012c7331aa48b2a423c436270c2, type: 2}

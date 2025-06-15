@@ -1,9 +1,5 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-using Unity.VisualScripting;
-using UnityEditor;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -23,14 +19,14 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonPlay()
     {
-        SceneManager.LoadScene(nameScene);
+        Invoke("ChangeScene", 1);
     }
     public void ButtonSettings()
     {
         MenuPanel.SetActive(false);
         SettingsPanel.SetActive(true);
     }
-    public void ButtonBackMenu([SerializeField] GameObject DesactivetPanel)
+    public void ButtonBackMenu(GameObject DesactivetPanel)
     {
         DesactivetPanel.SetActive(false);
         MenuPanel.SetActive(true);
@@ -39,5 +35,9 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();//Sirve para mandar a cerrar la aplicacion. 
         Debug.Log("Se ha cerrado el videojuego");
+    }
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(nameScene);
     }
 }

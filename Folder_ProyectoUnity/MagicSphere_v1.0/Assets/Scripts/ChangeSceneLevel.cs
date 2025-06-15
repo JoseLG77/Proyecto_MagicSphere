@@ -1,4 +1,4 @@
-using UnityEditor.TerrainTools;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,6 +34,7 @@ public class ChangeSceneLevel : MonoBehaviour
         }
     }
     #region OnMouse
+    //Se llama al hacer click sobre el objecto
     private void OnMouseDown()
     {
         if (levelData.isUnlocked)
@@ -45,6 +46,7 @@ public class ChangeSceneLevel : MonoBehaviour
             Debug.Log("Nivel bloqueado: " + levelData.levelName);
         }
     }
+    //Se llama mientras el mouse este encima del objecto
     private void OnMouseEnter()
     {
         isMouse = true;
@@ -54,6 +56,7 @@ public class ChangeSceneLevel : MonoBehaviour
             _renderer.materials = materials;
         }
     }
+    //Se llama cuando el mouse sale del objecto
     private void OnMouseExit()
     {
         isMouse= false;

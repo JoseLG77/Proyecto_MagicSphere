@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a26545fb30f257545b241924577ae588, type: 3}
-  m_Name: AudioMusicData
+  m_Name: Audio Data
   m_EditorClassIdentifier: 
-  musicMixer: {fileID: 788568572222891302, guid: a504a3f4d853b394f96ca04bd373be9e, type: 2}
-  EndLevel: {fileID: 0}
-  musicClip:
+  music:
   - {fileID: 8300000, guid: de1d9a6fbbf49024895d7e32c5a241e4, type: 3}
   - {fileID: 8300000, guid: f43de3ad03ad26744966ac72547b8c68, type: 3}
   - {fileID: 8300000, guid: e097196ff25d71c428386b5d10539e51, type: 3}
+  sfx:
+  - {fileID: 8300000, guid: ea8ae23ecc738bf4386e487e77878770, type: 3}
+  - {fileID: 8300000, guid: e43abaad615d1c447b56bd5904d731bb, type: 3}
+  - {fileID: 8300000, guid: 820abba5983c88b4babc7591b977ccab, type: 3}
