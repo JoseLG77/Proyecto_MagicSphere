@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,9 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform checkPoint;
 
     private bool isJump;
+    private bool isPressed;
     private Vector2 direction;
     private Vector2 directionVelocityMax;
-    private Vector2 directionCurrentVelocity;
+    [SerializeField] private Vector2 directionCurrentVelocity;
     private Rigidbody rb;
     #endregion
 
@@ -37,8 +40,22 @@ public class PlayerController : MonoBehaviour
     {
         if (OnMovement)
         {
-            directionCurrentVelocity +=  direction * acceleration * Time.deltaTime;
-            
+            if (!isPressed)
+            {
+                if (directionCurrentVelocity.magnitude > 0.1f)
+                {
+                    directionCurrentVelocity = Vector2.Lerp(directionCurrentVelocity, Vector2.zero, Time.deltaTime * acceleration * 0.25f);
+                }
+                else
+                {
+                    directionCurrentVelocity = Vector2.zero;
+                }
+                Vector3 desaleracion = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
+                rb.linearVelocity = desaleracion;
+                return;
+            }
+            directionCurrentVelocity += direction * acceleration * Time.deltaTime;
+
             directionCurrentVelocity.x = Mathf.Clamp(directionCurrentVelocity.x, -directionVelocityMax.x, directionVelocityMax.x);
             directionCurrentVelocity.y = Mathf.Clamp(directionCurrentVelocity.y, -directionVelocityMax.y, directionVelocityMax.y);
             //Mathf.Clamp es una funciones de unity, la cual limita un valor dentro de un rango minimo y maximo
@@ -57,6 +74,8 @@ public class PlayerController : MonoBehaviour
         {
             OnMovement = false;
             rb.linearVelocity = Vector3.zero;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            directionCurrentVelocity = Vector2.zero;
             transform.position = checkPoint.position;
         }
     }
@@ -66,6 +85,10 @@ public class PlayerController : MonoBehaviour
         {
             isJump = false;
         }
+        if (collision.gameObject.CompareTag("Limit"))
+        {
+            OnMovement = true;
+        }
     }
     #endregion
 
@@ -73,12 +96,20 @@ public class PlayerController : MonoBehaviour
     public void Movement(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+        if (context.performed)
+        {
+            isPressed = true;
+        }
+        else
+        {
+            isPressed = false;
+        }
     }
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.performed && isJump)
         {
-            rb.AddForce(Vector3.up * 100 * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
     public void ChangeShapeNext(InputAction.CallbackContext context)
@@ -102,6 +133,6 @@ public class PlayerController : MonoBehaviour
     {
 
     }
-
     #endregion
 }
+

@@ -19,7 +19,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonPlay()
     {
-        Invoke("ChangeScene", 1);
+        FadeManager.Instance.fadePanel.gameObject.SetActive(true);
+        FadeManager.Instance.ChangeSceneFade(nameScene);
     }
     public void ButtonSettings()
     {
@@ -35,9 +36,5 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();//Sirve para mandar a cerrar la aplicacion. 
         Debug.Log("Se ha cerrado el videojuego");
-    }
-    public void ChangeScene()
-    {
-        SceneManager.LoadScene(nameScene);
     }
 }

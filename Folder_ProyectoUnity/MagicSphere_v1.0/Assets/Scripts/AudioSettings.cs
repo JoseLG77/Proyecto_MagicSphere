@@ -10,7 +10,7 @@ public class AudioSettings : MonoBehaviour
     [SerializeField] private Slider sliderMaster;
     [SerializeField] private Slider sliderMusic;
     [SerializeField] private Slider sliderSFX;
-    public static AudioSettings Instance;
+    public static AudioSettings Instance { get; private set; }//Singleton
     #endregion
 
     private void OnEnable()
