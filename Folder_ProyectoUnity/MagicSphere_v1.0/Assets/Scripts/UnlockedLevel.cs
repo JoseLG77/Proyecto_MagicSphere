@@ -11,7 +11,7 @@ public class UnlockedLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             levelGraph.UnlockLevel(currentLevel);
-            SceneManager.LoadScene("Levels");
+            UIManager.Instance.panelResult.SetActive(true);
         }
     }
 }

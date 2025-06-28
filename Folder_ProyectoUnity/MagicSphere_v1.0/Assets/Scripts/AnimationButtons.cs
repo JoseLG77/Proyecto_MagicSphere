@@ -8,23 +8,21 @@ public class AnimationButtons : MonoBehaviour
     [SerializeField] private float duration = 0.3f;
     [SerializeField] private float scaleStart = 1;
     [SerializeField] private float scaleEnd = 2;
-    [SerializeField] private AnimationCurve curveStart;
-    [SerializeField] private AnimationCurve curveExit;
+    [SerializeField] private AnimationCurve curve;
 
     private RectTransform rectTransformButton;
     private void Awake()
     {
-        if (rectTransformButton == null)
-            rectTransformButton = GetComponent<RectTransform>();
+        rectTransformButton = GetComponent<RectTransform>();
     }
     public void EnterButton()
     {
-        rectTransformButton.DOScale(scaleStart, duration).SetEase(curveStart);
+        rectTransformButton.DOScale(scaleStart, duration).SetEase(curve);
     }
 
     public void ExitButton()
     {
-        rectTransformButton.DOScale(scaleEnd, duration).SetEase(curveExit);
+        rectTransformButton.DOScale(scaleEnd, duration).SetEase(curve);
     }
 }
 

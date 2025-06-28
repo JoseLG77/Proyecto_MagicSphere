@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelGraphData : ScriptableObject
 {
     public List<NodeLevelData> nodeLevel = new List<NodeLevelData>();
-    
+
     //agrega un nodo si aun no esta 
     public void AddNodeVertix(NodeLevelData level)
     {

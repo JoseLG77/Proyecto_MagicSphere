@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool isPressed;
     private Vector2 direction;
     private Vector2 directionVelocityMax;
-    [SerializeField] private Vector2 directionCurrentVelocity;
+    private Vector2 directionCurrentVelocity;
     private Rigidbody rb;
     #endregion
 
@@ -78,6 +78,11 @@ public class PlayerController : MonoBehaviour
             directionCurrentVelocity = Vector2.zero;
             transform.position = checkPoint.position;
         }
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            UIManager.Instance.Score++;
+            Destroy(collision.gameObject);
+        }
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -126,14 +131,10 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    #endregion
-
-    #region Methods
-    private void ChangeShape()
+    public void OffPlayerMovement()
     {
 
     }
-
     #endregion
 }
 

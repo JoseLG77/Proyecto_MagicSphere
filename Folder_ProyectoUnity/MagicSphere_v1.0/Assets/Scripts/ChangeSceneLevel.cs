@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,14 +5,17 @@ public class ChangeSceneLevel : MonoBehaviour
 {
     [SerializeField] private NodeLevelData levelData;
 
-    private Renderer _renderer;
-    private Material[] materials;
+    [SerializeField]private Renderer _renderer;
+    [SerializeField]private Material[] materials;
     private bool isMouse = false;
 
     private void Start()
     {
         _renderer = GetComponent<Renderer>();
         materials = _renderer.materials;
+        UIManager.Instance.panelMenu.gameObject.SetActive(false);
+        FadeManager.Instance.fadePanel.gameObject.SetActive(true);
+        FadeManager.Instance.FadeIn();
     }
     private void Update()
     {
@@ -39,6 +41,8 @@ public class ChangeSceneLevel : MonoBehaviour
     {
         if (levelData.isUnlocked)
         {
+            FadeManager.Instance.FadeOut();
+            UIManager.Instance.IsGameplay = true;
             Invoke("ChangeLevel", 1f);
         }
         else

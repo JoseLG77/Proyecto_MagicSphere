@@ -3,13 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] private string nameScene;
     [SerializeField] private GameObject MenuPanel;
-    [SerializeField] private GameObject SettingsPanel;
+
     void Start()
     {
-        MenuPanel.SetActive(true);
-        SettingsPanel.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -17,24 +15,46 @@ public class ButtonManager : MonoBehaviour
     {
         
     }
-    public void ButtonPlay()
+    public void ButtonChangeScene(string nameScene)
     {
+        if (UIManager.Instance.IsGameplay)
+        {
+            UIManager.Instance.panelResult.SetActive(false);
+        }
         FadeManager.Instance.fadePanel.gameObject.SetActive(true);
         FadeManager.Instance.ChangeSceneFade(nameScene);
+        Time.timeScale = 1.0f;
+        //FadeManager.Instance.ChangeSceneFade(nameScene);
     }
-    public void ButtonSettings()
+    public void ButtonActivePanel(GameObject activePanel)
     {
         MenuPanel.SetActive(false);
-        SettingsPanel.SetActive(true);
+        activePanel.SetActive(true);
     }
-    public void ButtonBackMenu(GameObject DesactivetPanel)
+    public void ButtonBack(GameObject currentPanel)
     {
-        DesactivetPanel.SetActive(false);
+        if (UIManager.Instance.IsGameplay)
+        {
+            currentPanel.SetActive(false);
+            UIManager.Instance.IsSettings = true;
+            if (Time.timeScale == 0)
+                Time.timeScale = 1;
+            return;
+        }
+        currentPanel.SetActive(false);
         MenuPanel.SetActive(true);
     }
+    public void ButtonRetry()
+    {
+        Time.timeScale = 1f; //Para que ya no este en pause
+        UIManager.Instance.panelResult.SetActive(false);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
+
     public void ExitButton()
     {
         Application.Quit();//Sirve para mandar a cerrar la aplicacion. 
-        Debug.Log("Se ha cerrado el videojuego");
     }
 }

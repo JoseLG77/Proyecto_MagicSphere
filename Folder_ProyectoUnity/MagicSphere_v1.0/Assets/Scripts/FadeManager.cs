@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class FadeManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class FadeManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
     private void Start()
     {
         fadePanel.gameObject.SetActive(true);
