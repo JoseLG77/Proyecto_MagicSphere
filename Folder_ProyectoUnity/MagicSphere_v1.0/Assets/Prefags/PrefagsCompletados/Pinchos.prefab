@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 0.5
   distance: 1.4
-  collisionSFX: {fileID: 0}
+  collisionSFX: {fileID: 8300000, guid: 53b7f997a98997a44a1b86480aca399a, type: 3}
 --- !u!1 &8775268397547851611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2463706537061040287, guid: a22eb13fa8826f74da870e26d60bb75c, type: 3}

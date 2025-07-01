@@ -50,5 +50,6 @@ public class SkewersController : BaseObstacles
                 UpDown = true;
             }
         }
+        //Tiempo asintotico O(1)
     }
 }

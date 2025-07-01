@@ -17,6 +17,7 @@ public class BaseObstacles : MonoBehaviour
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
             rb.AddExplosionForce(thrustForce * 100, transform.position, explosionRadius);
         }
+        //Tiempo asintotico O(1)
     }
     //Metodo de activacion de sonido SFX para collisiones
     public void OnPlaySoundCollision(AudioSource audioSource, AudioClip AudioSFX)

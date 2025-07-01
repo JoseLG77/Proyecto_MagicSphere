@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Update()
     {
-        if (!AudioMusic.isPlaying && music != null)
+        if (!AudioMusic.isPlaying && music != null)//Si no se esta reproduciendo musica, y la lista musica no esta vacia que se reproduzca la siquiente
         {
             currentIndex += 1;
             if (currentIndex >= music.Length)
@@ -44,6 +44,7 @@ public class AudioManager : MonoBehaviour
             PlaySound(currentIndex);
         }
     }
+    #region Methods
     private void PlayAudioSFX(AudioClip SFX)
     {
         AudioSFX.PlayOneShot(SFX);
@@ -53,4 +54,5 @@ public class AudioManager : MonoBehaviour
         AudioMusic.clip = music[index];
         AudioMusic.Play();
     }
+    #endregion
 }

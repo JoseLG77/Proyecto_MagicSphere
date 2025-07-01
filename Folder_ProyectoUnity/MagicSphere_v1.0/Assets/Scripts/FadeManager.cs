@@ -6,10 +6,11 @@ using System;
 
 public class FadeManager : MonoBehaviour
 {
+    #region Properties
     [SerializeField] private float fadeSpeed = 1f;
-    private bool isVisible;
     public Image fadePanel;
     public static FadeManager Instance { get; private set; }//Singleton
+    #endregion
 
     private void Awake()
     {
@@ -23,12 +24,12 @@ public class FadeManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-
     private void Start()
     {
         fadePanel.gameObject.SetActive(true);
         Instance.FadeIn();//Se hace el efecto
     }
+    #region Methods
     public void FadeIn()
     {
         StartCoroutine(Fade(1, 0)); // de negro a transparente
@@ -42,9 +43,12 @@ public class FadeManager : MonoBehaviour
     {
         StartCoroutine(ChangeSceneYield(SceneName));
     }
+    #endregion
 
+    #region Coroutine 
     IEnumerator Fade(float start, float end)
     {
+        fadePanel.gameObject.SetActive(true);
         float time = 0f;
         Color color = fadePanel.color;
         color.a = start;
@@ -60,12 +64,12 @@ public class FadeManager : MonoBehaviour
         }
         color.a = end;
         fadePanel.color = color;
-        isVisible = false;
-        fadePanel.gameObject.SetActive(isVisible);
+        fadePanel.gameObject.SetActive(false);
     }
     IEnumerator ChangeSceneYield(string sceneName)
     {
         yield return StartCoroutine(Fade(0, 1));
         SceneManager.LoadScene(sceneName);
     }
+    #endregion
 }

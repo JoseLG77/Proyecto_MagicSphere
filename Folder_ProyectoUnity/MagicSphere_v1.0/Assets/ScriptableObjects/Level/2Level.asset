@@ -15,7 +15,7 @@ MonoBehaviour:
   levelName: Level2
   nextLevels:
   - {fileID: 11400000, guid: 3f1fea8c80882944bad25d0c6d924c44, type: 2}
-  isUnlocked: 0
+  isUnlocked: 1
   Blocked: {fileID: 2100000, guid: efb7d9382b62ccd4ca3eba2efd76804a, type: 2}
   Unlocked: {fileID: 2100000, guid: fc343012c7331aa48b2a423c436270c2, type: 2}
   Select: {fileID: 2100000, guid: b953f0a287cdc5b499f2645c982c6203, type: 2}

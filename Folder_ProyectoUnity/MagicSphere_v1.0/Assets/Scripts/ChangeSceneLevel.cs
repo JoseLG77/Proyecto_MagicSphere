@@ -42,8 +42,8 @@ public class ChangeSceneLevel : MonoBehaviour
         if (levelData.isUnlocked)
         {
             FadeManager.Instance.FadeOut();
-            UIManager.Instance.IsGameplay = true;
-            Invoke("ChangeLevel", 1f);
+            GameManager.Instance.StartGame();
+            FadeManager.Instance.ChangeSceneFade(levelData.levelName);
         }
         else
         {
@@ -66,9 +66,4 @@ public class ChangeSceneLevel : MonoBehaviour
         isMouse= false;
     }
     #endregion
-
-    private void ChangeLevel()
-    {
-        SceneManager.LoadScene(levelData.levelName);
-    }
 }

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class UIManager : MonoBehaviour
     private int score = 0;
     #endregion
 
-    public static UIManager Instance { get; private set; }
+    public static UIManager Instance { get; private set; }//Singleton
 
     #region Getters y Setters
     public bool IsGameplay
@@ -59,6 +60,7 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region Unity Methods
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -70,6 +72,10 @@ public class UIManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+    }
+    private void OnEnable()
+    {
+        GameManager.StartLevel += StartGame;
     }
     void Start()
     {
@@ -86,52 +92,73 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGameplay && isCronometre)
+        if (isGameplay)
         {
-            panelGame.SetActive(true);
             Chronometer();
             scoreGame.text = "Score: " + score;
         }
     }
     private void Chronometer()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime >= 1)
+        if (isCronometre)
         {
-            segU++;
-            currentTime = 0;
-            if (segU == 10)
+            currentTime += Time.deltaTime;
+            if (currentTime >= 1)
             {
-                segD++;
-                segU = 0;
-                if (segD == 6)
+                segU++;
+                currentTime = 0;
+                if (segU == 10)
                 {
-                    min++;
-                    segD = 0;
+                    segD++;
+                    segU = 0;
+                    if (segD == 6)
+                    {
+                        min++;
+                        segD = 0;
+                    }
                 }
             }
+            timeGame.text = min + " : " + segD + segU;
         }
-        timeGame.text = min + " : " + segD + segU;
+        //Tiempo asintotico es O(1)
     }
+    #endregion
+
     #region Methods
     public void GameSettings(InputAction.CallbackContext context)
     {
         if (context.performed && isGameplay && isSettings)
         {
             panelSettings.SetActive(true);
+            panelGame.SetActive(false);
             isSettings = false;
             Time.timeScale = 0;
         }
         else if (context.performed && isGameplay && !isSettings)
         {
             panelSettings.SetActive(false);
+            panelGame.SetActive(true);
             isSettings = true;
             Time.timeScale = 1;
         }
+        //Tiempo asintotico es O(1)
     }
     public void SaveStatisticsResult()
     {
-        
+        timeResult.text = timeGame.text;
+        ScoreResutl.text = scoreGame.text;
+    }
+    public void StartGame()
+    {
+        panelMenu.SetActive(false);
+        panelTutorials.SetActive(false);
+        panelSettings.SetActive(false);
+        panelCredist.SetActive(false);
+        panelGame.SetActive(true);
+        panelResult.SetActive(false);
+        isGameplay = true;
+        isCronometre = true;
+        //Tiempo asintotico es O(1)
     }
     #endregion
 }

@@ -7,13 +7,19 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     #region Properties
-    [Header("Statistics")]
+    [Header("-----Statistics-----")]
     [SerializeField] private bool OnMovement;
     [SerializeField] private float velocityMax = 5; //Velocidad Final.
     [SerializeField] private float acceleration = 5; //Tiempo para que llegue a la velocidad final.
     [SerializeField] private float jumpForce;
-    [Header("CheckPoint")]
+    [Header("-----CheckPoint-----")]
     [SerializeField] private Transform checkPoint;
+    [Header("-----Shape-----")]
+    [SerializeField] private Mesh[] shape;
+    [SerializeField] private DoublyLinkedCircularList shapeList = new DoublyLinkedCircularList();
+    [SerializeField] private NodeShape currentShape;
+    [SerializeField] private MeshFilter meshFilter;
+
 
     private bool isJump;
     private bool isPressed;
@@ -23,11 +29,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     #endregion
 
+    public Transform CheckPoint
+    {
+        get { return checkPoint; }
+        set { checkPoint = value; }
+    }
+
     #region UnityMethods
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         directionVelocityMax = new Vector2(velocityMax, velocityMax);
+        meshFilter = GetComponent<MeshFilter>();
     }
 
     // Update is called once per frame
@@ -42,23 +55,33 @@ public class PlayerController : MonoBehaviour
         {
             if (!isPressed)
             {
-                if (directionCurrentVelocity.magnitude > 0.1f)
+                if (directionCurrentVelocity == Vector2.zero)
                 {
-                    directionCurrentVelocity = Vector2.Lerp(directionCurrentVelocity, Vector2.zero, Time.deltaTime * acceleration * 0.25f);
+                    rb.linearDamping = 0.5f;
+                    //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, rb.linearVelocity.z);
+                    return;
                 }
                 else
                 {
-                    directionCurrentVelocity = Vector2.zero;
+                    if (directionCurrentVelocity.magnitude > 0.1f)
+                    {
+                        directionCurrentVelocity = Vector2.Lerp(directionCurrentVelocity, Vector2.zero, Time.deltaTime * acceleration * 0.6f);
+                    }
+                    else
+                    {
+                        directionCurrentVelocity = Vector2.zero;
+                    }
+                    Vector3 desaleracion = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
+                    rb.linearVelocity = desaleracion;
+                    return;
                 }
-                Vector3 desaleracion = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
-                rb.linearVelocity = desaleracion;
-                return;
             }
+            //MRUV
             directionCurrentVelocity += direction * acceleration * Time.deltaTime;
 
             directionCurrentVelocity.x = Mathf.Clamp(directionCurrentVelocity.x, -directionVelocityMax.x, directionVelocityMax.x);
             directionCurrentVelocity.y = Mathf.Clamp(directionCurrentVelocity.y, -directionVelocityMax.y, directionVelocityMax.y);
-            //Mathf.Clamp es una funciones de unity, la cual limita un valor dentro de un rango minimo y maximo
+            //Mathf.Clamp es una funciones matematica, la cual limita un valor dentro de un rango minimo y maximo
 
             Vector3 mov = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
             rb.linearVelocity = mov;
@@ -78,11 +101,6 @@ public class PlayerController : MonoBehaviour
             directionCurrentVelocity = Vector2.zero;
             transform.position = checkPoint.position;
         }
-        if (collision.gameObject.CompareTag("Coin"))
-        {
-            UIManager.Instance.Score++;
-            Destroy(collision.gameObject);
-        }
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -93,6 +111,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Limit"))
         {
             OnMovement = true;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            UIManager.Instance.Score++;
+            Destroy(other.gameObject);
         }
     }
     #endregion

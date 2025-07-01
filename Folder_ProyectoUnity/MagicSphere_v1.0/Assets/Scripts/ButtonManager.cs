@@ -15,6 +15,7 @@ public class ButtonManager : MonoBehaviour
     {
         
     }
+    #region Methods
     public void ButtonChangeScene(string nameScene)
     {
         if (UIManager.Instance.IsGameplay)
@@ -22,6 +23,8 @@ public class ButtonManager : MonoBehaviour
             UIManager.Instance.panelResult.SetActive(false);
         }
         FadeManager.Instance.fadePanel.gameObject.SetActive(true);
+        UIManager.Instance.PanelSettings.gameObject.SetActive(false);
+        UIManager.Instance.IsGameplay = false;
         FadeManager.Instance.ChangeSceneFade(nameScene);
         Time.timeScale = 1.0f;
         //FadeManager.Instance.ChangeSceneFade(nameScene);
@@ -57,4 +60,5 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();//Sirve para mandar a cerrar la aplicacion. 
     }
+    #endregion
 }
