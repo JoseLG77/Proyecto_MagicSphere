@@ -121,84 +121,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1001 &3314163431845508258
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8984634052997292320}
-    m_Modifications:
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0012924195
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.00132792
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.20280004
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3685377320892136226, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-      propertyPath: m_Name
-      value: Paticula de fuego
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
---- !u!4 &451550900173374044 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3150968550389855998, guid: d968aa1cb531d9245bbeaa7d0fb6eea8, type: 3}
-  m_PrefabInstance: {fileID: 3314163431845508258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8873617856000247499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,9 +195,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0256f87eb994f348959cd6c3e1dd9bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3747157665103958619}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0256f87eb994f348959cd6c3e1dd9bd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 451550900173374044}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0256f87eb994f348959cd6c3e1dd9bd, type: 3}
 --- !u!4 &8984634052997292320 stripped

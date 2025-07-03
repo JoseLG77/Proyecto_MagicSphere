@@ -1,19 +1,17 @@
 using UnityEngine;
-using TMPro;
 using System;
-using NUnit.Framework;
-using System.Security.Cryptography;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
     [Header("-----List-----")]
-    [SerializeField] private List time;
-    [SerializeField] private List score;
+    [SerializeField] private List<string> listTime;
+    [SerializeField] private List<int> listScore;
+    [SerializeField] private NodeCheckpoint[] checkPoint;
 
     private bool isPauseGame;
     private bool isFinishLevel;
+    private int score = 0;
 
     #region Event y Singleton
     public static GameManager Instance { get; private set; }
@@ -21,11 +19,18 @@ public class GameManager : MonoBehaviour
     public static event Action StartLevel;// Evento para cuando el jugador inicia el nivel
     #endregion
 
+    #region Getters y Setters
     public bool IsPauseGame
     {
         get { return isPauseGame; }
         set { IsPauseGame = value; }
     }
+    public int Score
+    {
+        get { return score; }
+        set { score = value; }
+    }
+    #endregion
 
     private void Awake()
     {
@@ -51,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    public void InsertionSorft(List<int> value)
+    public void InsertionSort(List<int> value)
     {
         for (int i = 0; i < value.Count; i++)
         {
@@ -68,5 +73,9 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         StartLevel?.Invoke();
+    }
+    public void LevelFinish()
+    {
+        FinishLevel?.Invoke();
     }
 }

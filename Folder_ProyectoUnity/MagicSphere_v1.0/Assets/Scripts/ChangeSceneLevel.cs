@@ -44,6 +44,7 @@ public class ChangeSceneLevel : MonoBehaviour
             FadeManager.Instance.FadeOut();
             GameManager.Instance.StartGame();
             FadeManager.Instance.ChangeSceneFade(levelData.levelName);
+            //GameManager.Instance.StartGame();
         }
         else
         {

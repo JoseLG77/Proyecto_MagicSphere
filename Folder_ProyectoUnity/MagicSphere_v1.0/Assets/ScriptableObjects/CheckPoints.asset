@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57013a59ca7544a4eac747df27ccd8c2, type: 3}
   m_Name: CheckPoints
   m_EditorClassIdentifier: 
+  nameLevel: 
   materials:
   - {fileID: 2100000, guid: 823d0aee5db494641aaeadf7c2d6b4e4, type: 2}
   - {fileID: 2100000, guid: b8ec67a4ad5c4d945a4617d5f4c4251c, type: 2}

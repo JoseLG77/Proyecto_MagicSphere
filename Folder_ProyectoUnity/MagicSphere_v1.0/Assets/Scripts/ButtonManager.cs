@@ -59,6 +59,7 @@ public class ButtonManager : MonoBehaviour
     public void ExitButton()
     {
         Application.Quit();//Sirve para mandar a cerrar la aplicacion. 
+        //SceneManager.GetSceneByName(SceneManager.GetActiveScene().name);
     }
     #endregion
 }

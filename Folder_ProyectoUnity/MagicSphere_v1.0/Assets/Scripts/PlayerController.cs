@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
     #region Properties
     [Header("-----Statistics-----")]
-    [SerializeField] private bool OnMovement;
     [SerializeField] private float velocityMax = 5; //Velocidad Final.
     [SerializeField] private float acceleration = 5; //Tiempo para que llegue a la velocidad final.
     [SerializeField] private float jumpForce;
@@ -19,10 +16,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private DoublyLinkedCircularList shapeList = new DoublyLinkedCircularList();
     [SerializeField] private NodeShape currentShape;
     [SerializeField] private MeshFilter meshFilter;
+    /*[Header("-----Animation-----")]
+    [SerializeField] private float scaleStart = 1.0f;
+    [SerializeField] private float scaleEnd = 1.0f;
+    [SerializeField] private float timeDuration = 1;
+    [SerializeField] private AnimationCurve curve;*/
 
 
     private bool isJump;
     private bool isPressed;
+    private bool OnMovement;
     private Vector2 direction;
     private Vector2 directionVelocityMax;
     private Vector2 directionCurrentVelocity;
@@ -41,18 +44,20 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         directionVelocityMax = new Vector2(velocityMax, velocityMax);
         meshFilter = GetComponent<MeshFilter>();
+        OnMovement = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void FixedUpdate()
     {
-        if (OnMovement)
-        {
+        if (!OnMovement) return;
+
+        
             if (!isPressed)
             {
                 if (directionCurrentVelocity == Vector2.zero)
@@ -85,8 +90,8 @@ public class PlayerController : MonoBehaviour
 
             Vector3 mov = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
             rb.linearVelocity = mov;
-        }
     }
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -100,6 +105,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             directionCurrentVelocity = Vector2.zero;
             transform.position = checkPoint.position;
+            /*transform.DOScale(scaleStart, timeDuration).SetEase(curve);
+            transform.DOScale(scaleEnd, timeDuration);*/
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -117,7 +124,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            UIManager.Instance.Score++;
+            GameManager.Instance.Score++;
             Destroy(other.gameObject);
         }
     }

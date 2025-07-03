@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreGame;
     [SerializeField] private TextMeshProUGUI timeResult;
     [SerializeField] private TextMeshProUGUI ScoreResutl;
-    [SerializeField] private TextMeshProUGUI beforeScoreResult;
+    [SerializeField] private TextMeshProUGUI afterScoreResult;
 
     private float currentTime = 0;
     private float segU = 0;
@@ -27,7 +27,6 @@ public class UIManager : MonoBehaviour
     private bool isGameplay;
     private bool isCronometre;
     private bool isSettings;
-    private int score = 0;
     #endregion
 
     public static UIManager Instance { get; private set; }//Singleton
@@ -47,11 +46,6 @@ public class UIManager : MonoBehaviour
     {
         get { return isSettings; }
         set { isSettings = value; }
-    }
-    public int Score
-    {
-        get { return score; }
-        set { score = value; }
     }
     public GameObject PanelSettings
     {
@@ -76,6 +70,14 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         GameManager.StartLevel += StartGame;
+        GameManager.FinishLevel += LevelFinish;
+        GameManager.FinishLevel += SaveStatisticsResult;
+    }
+    private void OnDisable()
+    {
+        GameManager.StartLevel -= StartGame;
+        GameManager.FinishLevel -= LevelFinish;
+        GameManager.FinishLevel -= SaveStatisticsResult;
     }
     void Start()
     {
@@ -95,9 +97,12 @@ public class UIManager : MonoBehaviour
         if (isGameplay)
         {
             Chronometer();
-            scoreGame.text = "Score: " + score;
+            scoreGame.text = "Score: " + GameManager.Instance.Score;
         }
     }
+    #endregion
+
+    #region Methods
     private void Chronometer()
     {
         if (isCronometre)
@@ -122,9 +127,6 @@ public class UIManager : MonoBehaviour
         }
         //Tiempo asintotico es O(1)
     }
-    #endregion
-
-    #region Methods
     public void GameSettings(InputAction.CallbackContext context)
     {
         if (context.performed && isGameplay && isSettings)
@@ -159,6 +161,17 @@ public class UIManager : MonoBehaviour
         isGameplay = true;
         isCronometre = true;
         //Tiempo asintotico es O(1)
+    }
+    public void LevelFinish()
+    {
+        panelMenu.SetActive(false);
+        panelTutorials.SetActive(false);
+        panelSettings.SetActive(false);
+        panelCredist.SetActive(false);
+        panelGame.SetActive(false);
+        panelResult.SetActive(true);
+        isGameplay = false;
+        isCronometre = false;
     }
     #endregion
 }
