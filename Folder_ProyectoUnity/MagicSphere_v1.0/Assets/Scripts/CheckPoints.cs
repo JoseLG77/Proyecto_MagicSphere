@@ -12,7 +12,6 @@ public class CheckPoints : MonoBehaviour
     [SerializeField] private bool isCheckpoint;
 
     private Renderer _render;
-    private Material _material;
     #endregion
 
     #region Unity Methods

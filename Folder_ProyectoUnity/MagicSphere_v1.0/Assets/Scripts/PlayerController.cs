@@ -164,10 +164,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    public void OffPlayerMovement()
-    {
-
-    }
     #endregion
 }
 
