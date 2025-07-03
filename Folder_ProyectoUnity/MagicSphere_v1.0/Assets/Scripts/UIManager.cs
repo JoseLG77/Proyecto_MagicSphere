@@ -73,12 +73,12 @@ public class UIManager : MonoBehaviour
         GameManager.FinishLevel += LevelFinish;
         GameManager.FinishLevel += SaveStatisticsResult;
     }
-    private void OnDisable()
-    {
-        GameManager.StartLevel -= StartGame;
-        GameManager.FinishLevel -= LevelFinish;
-        GameManager.FinishLevel -= SaveStatisticsResult;
-    }
+    //private void OnDisable()
+    //{
+    //    GameManager.StartLevel -= StartGame;
+    //    GameManager.FinishLevel -= LevelFinish;
+    //    GameManager.FinishLevel -= SaveStatisticsResult;
+    //}
     void Start()
     {
         panelMenu.SetActive(true);

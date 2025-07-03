@@ -15,6 +15,7 @@ public class AudioSettings : MonoBehaviour
 
     private void OnEnable()
     {
+        //Cambiar el Find
         if (sliderMaster == null)
             sliderMaster = GameObject.Find("SliderMaster")?.GetComponent<Slider>();
 

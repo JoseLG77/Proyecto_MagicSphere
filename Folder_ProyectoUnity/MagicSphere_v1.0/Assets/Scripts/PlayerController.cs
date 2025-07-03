@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private DoublyLinkedCircularList shapeList = new DoublyLinkedCircularList();
     [SerializeField] private NodeShape currentShape;
     [SerializeField] private MeshFilter meshFilter;
-    /*[Header("-----Animation-----")]
+    [Header("-----Animation-----")]
     [SerializeField] private float scaleStart = 1.0f;
     [SerializeField] private float scaleEnd = 1.0f;
     [SerializeField] private float timeDuration = 1;
-    [SerializeField] private AnimationCurve curve;*/
+    [SerializeField] private AnimationCurve curve;
 
 
     private bool isJump;
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         directionVelocityMax = new Vector2(velocityMax, velocityMax);
         meshFilter = GetComponent<MeshFilter>();
         OnMovement = true;
+        SpawnAnimation();
     }
 
     // Update is called once per frame
@@ -105,8 +106,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             directionCurrentVelocity = Vector2.zero;
             transform.position = checkPoint.position;
-            /*transform.DOScale(scaleStart, timeDuration).SetEase(curve);
-            transform.DOScale(scaleEnd, timeDuration);*/
+            SpawnAnimation();
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -163,6 +163,13 @@ public class PlayerController : MonoBehaviour
         {
 
         }
+    }
+    public void SpawnAnimation()
+    {
+        //Animacion con DoTwween para la reaparision
+        Sequence animation = DOTween.Sequence();
+        animation.Append(transform.DOScale(scaleStart, timeDuration));
+        animation.Append(transform.DOScale(scaleEnd, timeDuration));
     }
     #endregion
 }

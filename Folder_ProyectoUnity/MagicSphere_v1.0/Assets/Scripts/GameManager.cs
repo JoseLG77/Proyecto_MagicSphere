@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     }
     public void LevelFinish()
     {
-        FinishLevel?.Invoke();
+        FinishLevel.Invoke();
+        Debug.Log("Se llamo el evento");
     }
 }

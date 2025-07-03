@@ -11,7 +11,8 @@ public class UnlockedLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             levelGraph.UnlockLevel(currentLevel);
-            GameManager.Instance.StartGame();
+            GameManager.Instance.LevelFinish();
+            //Llamar correctamente al evento
         }
     }
 }
