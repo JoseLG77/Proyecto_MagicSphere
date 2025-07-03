@@ -5894,6 +5894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0d3b06dfde57f4f97d3c8b4965f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listTime: []
+  listScore: 
+  checkPoint: []
 --- !u!4 &809835622
 Transform:
   m_ObjectHideFlags: 0
@@ -11361,7 +11364,7 @@ MonoBehaviour:
   scoreGame: {fileID: 1291065800}
   timeResult: {fileID: 1891202689}
   ScoreResutl: {fileID: 935127780}
-  beforeScoreResult: {fileID: 1406320147}
+  afterScoreResult: {fileID: 0}
 --- !u!114 &1995221565
 MonoBehaviour:
   m_ObjectHideFlags: 0

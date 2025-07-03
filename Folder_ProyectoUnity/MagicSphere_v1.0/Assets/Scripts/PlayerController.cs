@@ -55,9 +55,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!OnMovement) return;
-
-        
+        if (OnMovement)
+        {
             if (!isPressed)
             {
                 if (directionCurrentVelocity == Vector2.zero)
@@ -90,6 +89,7 @@ public class PlayerController : MonoBehaviour
 
             Vector3 mov = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
             rb.linearVelocity = mov;
+        }
     }
     
     private void OnCollisionEnter(Collision collision)

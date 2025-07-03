@@ -49,7 +49,7 @@ public class AudioSettings : MonoBehaviour
         audioMixer.SetFloat("SoundMaster", Mathf.Log10(sliderValue) * 20);
         audioSettingsData.masterVolume = sliderValue;
         sliderMaster.value = sliderValue;
-        PlayerPrefs.SetFloat("SoundMaster", sliderValue);
+        //PlayerPrefs.SetFloat("SoundMaster", sliderValue);
 
     }
     public void VolumenMusic(float sliderValue)
@@ -57,13 +57,13 @@ public class AudioSettings : MonoBehaviour
         audioMixer.SetFloat("SoundMusic", Mathf.Log10(sliderValue) * 20);
         audioSettingsData.musicVolume = sliderValue;
         sliderMusic.value = sliderValue;
-        PlayerPrefs.SetFloat("SoundMusic", sliderValue);
+        //PlayerPrefs.SetFloat("SoundMusic", sliderValue);
     }
     public void VolumenSFX(float sliderValue)
     {
         audioMixer.SetFloat("SoundSFX", Mathf.Log10(sliderValue) * 20);
         audioSettingsData.sfxVolume = sliderValue;
-        PlayerPrefs.SetFloat("SoundSFX", sliderValue);
+        //PlayerPrefs.SetFloat("SoundSFX", sliderValue);
         sliderSFX.value = sliderValue;
     }
     #endregion
