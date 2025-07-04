@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6454345314683181396}
   - component: {fileID: 7351522355519447546}
-  - component: {fileID: 1570338302617199305}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -54,24 +53,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.6895146, y: 0.5727639, z: 0.99780464}
   m_Center: {x: -0.014997958, y: -0.047209024, z: 0.005729318}
---- !u!114 &1570338302617199305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3239813781627617156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb5528031b5606419ce92c32e71d8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnBehaverSkewers: 0
-  traveDirectionSpeed: {x: 0, y: 0, z: 0}
-  OnBehavierRotation: 0
-  directionVecocity: {x: 0, y: 0, z: 0}
-  thrustForce: 2
-  explosionRadius: 5
 --- !u!1 &3480715048223943735
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +63,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4452909331822896147}
   - component: {fileID: 224685956970182127}
-  - component: {fileID: 1863095622051010380}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -126,24 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.6895146, y: 0.5727639, z: 0.99780464}
   m_Center: {x: -0.014997958, y: -0.047209024, z: 0.005729318}
---- !u!114 &1863095622051010380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3480715048223943735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb5528031b5606419ce92c32e71d8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnBehaverSkewers: 0
-  traveDirectionSpeed: {x: 0, y: 0, z: 0}
-  OnBehavierRotation: 0
-  directionVecocity: {x: 0, y: 0, z: 0}
-  thrustForce: 2
-  explosionRadius: 5
 --- !u!1001 &8234254452071019050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -284,7 +246,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -609076063428750450, guid: 4bf551b48f4e6964498629e69859685f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7226731423701447464}
+      addedObject: {fileID: 8984601509896631794}
     - targetCorrespondingSourceObject: {fileID: 532946265858002174, guid: 4bf551b48f4e6964498629e69859685f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4849150811128126235}
@@ -294,7 +256,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -609076063428750450, guid: 4bf551b48f4e6964498629e69859685f, type: 3}
   m_PrefabInstance: {fileID: 8234254452071019050}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7226731423701447464
+--- !u!114 &8984601509896631794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,15 +265,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 417095613029409188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb5528031b5606419ce92c32e71d8be, type: 3}
+  m_Script: {fileID: 11500000, guid: c6a2801b92f99c6499758c1d90fa4dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnBehaverSkewers: 0
-  traveDirectionSpeed: {x: 0, y: 0, z: 0}
-  OnBehavierRotation: 1
-  directionVecocity: {x: 0, y: 0, z: 35}
-  thrustForce: 10
-  explosionRadius: 5
+  directionVecocity: {x: 0, y: 0, z: 50}
+  collisionSFX: {fileID: 0}
 --- !u!4 &1474816686224394149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1859305798108809841, guid: 4bf551b48f4e6964498629e69859685f, type: 3}
@@ -334,9 +292,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb5528031b5606419ce92c32e71d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnBehaverSkewers: 0
-  traveDirectionSpeed: {x: 0, y: 0, z: 0}
-  OnBehavierRotation: 1
-  directionVecocity: {x: 0, y: 0, z: 35}
-  thrustForce: 5
-  explosionRadius: 2.5

@@ -1,36 +1,51 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private bool OnMovement;
-    //[SerializeField] private float speed;
+    #region Properties
+    [Header("-----Statistics-----")]
     [SerializeField] private float velocityMax = 5; //Velocidad Final.
     [SerializeField] private float acceleration = 5; //Tiempo para que llegue a la velocidad final.
     [SerializeField] private float jumpForce;
+    [Header("-----CheckPoint-----")]
     [SerializeField] private Transform checkPoint;
+    [Header("-----Shape-----")]
+    [SerializeField] private Mesh[] shape;
+    [SerializeField] private DoublyLinkedCircularList shapeList = new DoublyLinkedCircularList();
+    [SerializeField] private NodeShape currentShape;
+    [SerializeField] private MeshFilter meshFilter;
+    [Header("-----Animation-----")]
+    [SerializeField] private float scaleStart = 1.0f;
+    [SerializeField] private float scaleEnd = 1.0f;
+    [SerializeField] private float timeDuration = 1;
+    [SerializeField] private AnimationCurve curve;
 
-    //private float Vi = 0; //Velocidad inicial. 
-    //private float currentTime = 0;
+
     private bool isJump;
+    private bool isPressed;
+    private bool OnMovement;
     private Vector2 direction;
     private Vector2 directionVelocityMax;
     private Vector2 directionCurrentVelocity;
     private Rigidbody rb;
+    #endregion
 
-    /*public float CurrentTime
+    public Transform CheckPoint
     {
-        set
-        {
-            if (value > TimeVf) return;
-            currentTime = value;
-        }
-    }*/
+        get { return checkPoint; }
+        set { checkPoint = value; }
+    }
 
+    #region UnityMethods
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         directionVelocityMax = new Vector2(velocityMax, velocityMax);
+        meshFilter = GetComponent<MeshFilter>();
+        OnMovement = true;
+        SpawnAnimation();
     }
 
     // Update is called once per frame
@@ -38,25 +53,46 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+
     private void FixedUpdate()
     {
-        /*if (OnMovement && isJump)
-        {
-            Vector3 dir = new Vector3(direction.x, rb.linearVelocity.y, direction.y);
-            rb.AddForce(dir * speed);
-        }*/
         if (OnMovement)
         {
-            directionCurrentVelocity +=  direction * acceleration * Time.deltaTime;
-            
+            if (!isPressed)
+            {
+                if (directionCurrentVelocity == Vector2.zero)
+                {
+                    rb.linearDamping = 0.5f;
+                    //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, rb.linearVelocity.z);
+                    return;
+                }
+                else
+                {
+                    if (directionCurrentVelocity.magnitude > 0.1f)
+                    {
+                        directionCurrentVelocity = Vector2.Lerp(directionCurrentVelocity, Vector2.zero, Time.deltaTime * acceleration * 0.6f);
+                    }
+                    else
+                    {
+                        directionCurrentVelocity = Vector2.zero;
+                    }
+                    Vector3 desaleracion = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
+                    rb.linearVelocity = desaleracion;
+                    return;
+                }
+            }
+            //MRUV
+            directionCurrentVelocity += direction * acceleration * Time.deltaTime;
+
             directionCurrentVelocity.x = Mathf.Clamp(directionCurrentVelocity.x, -directionVelocityMax.x, directionVelocityMax.x);
             directionCurrentVelocity.y = Mathf.Clamp(directionCurrentVelocity.y, -directionVelocityMax.y, directionVelocityMax.y);
-            //Mathf.Clamp es una funciones de unity, la cual limita un valor dentro de un rango minimo y maximo
+            //Mathf.Clamp es una funciones matematica, la cual limita un valor dentro de un rango minimo y maximo
 
             Vector3 mov = new Vector3(directionCurrentVelocity.x, rb.linearVelocity.y, directionCurrentVelocity.y);
             rb.linearVelocity = mov;
         }
     }
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -67,7 +103,10 @@ public class PlayerController : MonoBehaviour
         {
             OnMovement = false;
             rb.linearVelocity = Vector3.zero;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            directionCurrentVelocity = Vector2.zero;
             transform.position = checkPoint.position;
+            SpawnAnimation();
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -76,16 +115,62 @@ public class PlayerController : MonoBehaviour
         {
             isJump = false;
         }
+        if (collision.gameObject.CompareTag("Limit"))
+        {
+            OnMovement = true;
+        }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            GameManager.Instance.Score++;
+            Destroy(other.gameObject);
+        }
+    }
+    #endregion
+
+    #region PlayerInputAction
     public void Movement(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+        if (context.performed)
+        {
+            isPressed = true;
+        }
+        else
+        {
+            isPressed = false;
+        }
     }
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.performed && isJump)
         {
-            rb.AddForce(Vector3.up * 100 * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
+    public void ChangeShapeNext(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+
+        }
+    }
+    public void ChangeShapePrev(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+
+        }
+    }
+    public void SpawnAnimation()
+    {
+        //Animacion con DoTwween para la reaparision
+        Sequence animation = DOTween.Sequence();
+        animation.Append(transform.DOScale(scaleStart, timeDuration));
+        animation.Append(transform.DOScale(scaleEnd, timeDuration));
+    }
+    #endregion
 }
+

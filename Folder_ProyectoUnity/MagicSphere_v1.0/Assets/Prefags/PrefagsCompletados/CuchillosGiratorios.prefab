@@ -92,7 +92,7 @@ PrefabInstance:
       addedObject: {fileID: 6087205101663089690}
     - targetCorrespondingSourceObject: {fileID: 8487167654232718067, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2482525403772979931}
+      addedObject: {fileID: 2474909077074835377}
   m_SourcePrefab: {fileID: 100100000, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
 --- !u!1 &2896780780898164833 stripped
 GameObject:
@@ -121,7 +121,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -951608786083511892, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
---- !u!114 &2482525403772979931
+--- !u!114 &2474909077074835377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,15 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2896780780898164833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb5528031b5606419ce92c32e71d8be, type: 3}
+  m_Script: {fileID: 11500000, guid: c6a2801b92f99c6499758c1d90fa4dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnBehaverSkewers: 0
-  traveDirectionSpeed: {x: 0, y: 0, z: 0}
-  OnBehavierRotation: 1
   directionVecocity: {x: 0, y: 0, z: 50}
-  thrustForce: 2
-  explosionRadius: 5
+  collisionSFX: {fileID: 0}
 --- !u!1 &3929662017127754014 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7742780737561719692, guid: 7e4f42755c3dd494e9bb262f44213511, type: 3}
