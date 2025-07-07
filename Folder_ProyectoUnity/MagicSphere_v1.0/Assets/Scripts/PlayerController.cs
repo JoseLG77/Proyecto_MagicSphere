@@ -190,9 +190,10 @@ public class PlayerController : MonoBehaviour
     public void SpawnAnimation()
     {
         //Animacion con DoTwween para la reaparision
+        Vector3 scalePlayer = transform.localScale;
         Sequence animation = DOTween.Sequence();
         animation.Append(transform.DOScale(scaleStart, timeDuration)).SetEase(curve);
-        animation.Append(transform.DOScale(scaleEnd, timeDuration)).SetEase(curve);
+        animation.Append(transform.DOScale(scalePlayer, timeDuration)).SetEase(curve);
     }
     private void ChangeColliders()
     {
