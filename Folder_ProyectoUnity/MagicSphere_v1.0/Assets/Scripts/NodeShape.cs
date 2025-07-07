@@ -2,20 +2,18 @@ using UnityEngine;
 
 public class NodeShape
 {
-    public GameObject currentShape;
+    #region Properties
+    public Mesh currentShapeMesh;
     public NodeShape next;
     public NodeShape prev;
+    #endregion
 
-    public NodeShape(GameObject shape)
+    #region Constructor
+    public NodeShape(Mesh shape)
     {
-        currentShape = shape;
+        this.currentShapeMesh = shape;
+        this.next = this;
+        this.prev = this;
     }
-    public void SetNext(NodeShape node)
-    {
-        this.next = node;
-    }
-    public void SetPrev(NodeShape node)
-    {
-        this.prev = node;
-    }
+    #endregion
 }
