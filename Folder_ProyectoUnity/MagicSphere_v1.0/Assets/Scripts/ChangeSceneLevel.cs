@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneLevel : MonoBehaviour
 {
+    #region Properties
     [SerializeField] private NodeLevelData levelData;
 
     [SerializeField]private Renderer _renderer;
     [SerializeField]private Material[] materials;
     private bool isMouse = false;
+    #endregion
 
     private void Start()
     {
@@ -16,6 +18,7 @@ public class ChangeSceneLevel : MonoBehaviour
         UIManager.Instance.panelMenu.gameObject.SetActive(false);
         FadeManager.Instance.fadePanel.gameObject.SetActive(true);
         FadeManager.Instance.FadeIn();
+        PlayerPrefs.SetInt("IsState", levelData.isUnlocked ? 1 : 0);
     }
     private void Update()
     {

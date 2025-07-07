@@ -5,16 +5,6 @@ public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject MenuPanel;
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     #region Methods
     public void ButtonChangeScene(string nameScene)
     {

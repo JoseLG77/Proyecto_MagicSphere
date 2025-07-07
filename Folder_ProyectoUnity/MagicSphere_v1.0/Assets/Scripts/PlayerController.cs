@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,15 +13,15 @@ public class PlayerController : MonoBehaviour
     [Header("-----CheckPoint-----")]
     [SerializeField] private Transform checkPoint;
     [Header("-----Shape-----")]
-    [SerializeField] private Mesh[] shape;
-    [SerializeField] private DoublyLinkedCircularList shapeList = new DoublyLinkedCircularList();
-    [SerializeField] private NodeShape currentShape;
-    [SerializeField] private MeshFilter meshFilter;
+    [SerializeField] private Mesh[] shapeMesh;
     [Header("-----Animation-----")]
     [SerializeField] private float scaleStart = 1.0f;
     [SerializeField] private float scaleEnd = 1.0f;
     [SerializeField] private float timeDuration = 1;
     [SerializeField] private AnimationCurve curve;
+    [Header("-----Colliders-----")]
+    [SerializeField] private Collider colliderSphere;
+    [SerializeField] private Collider colliderCube;
 
 
     private bool isJump;
@@ -30,6 +31,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 directionVelocityMax;
     private Vector2 directionCurrentVelocity;
     private Rigidbody rb;
+    private MeshFilter meshFilter;
+    private NodeShape currentShape;
+    private DoublyLinkedCircularList doublyLinkedCircularList = new DoublyLinkedCircularList();
+    private int indexColliders;
     #endregion
 
     public Transform CheckPoint
@@ -45,13 +50,23 @@ public class PlayerController : MonoBehaviour
         directionVelocityMax = new Vector2(velocityMax, velocityMax);
         meshFilter = GetComponent<MeshFilter>();
         OnMovement = true;
+
+        //Llenamos la lista circular doblemente enlazada
+        for (int i = 0; i < shapeMesh.Length; i++)
+        {
+            doublyLinkedCircularList.Add(shapeMesh[i]);
+        }
+        currentShape = doublyLinkedCircularList.GetHead();
+        meshFilter.mesh = currentShape.currentShapeMesh;
+        colliderSphere.enabled = true;
+        colliderCube.enabled = false;
         SpawnAnimation();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -152,25 +167,53 @@ public class PlayerController : MonoBehaviour
     }
     public void ChangeShapeNext(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && currentShape != null)
         {
-
+            currentShape = currentShape.next;
+            meshFilter.mesh = currentShape.currentShapeMesh;
+            ChangeColliders();
         }
     }
     public void ChangeShapePrev(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && currentShape != null)
         {
-
+            currentShape = currentShape.prev;
+            meshFilter.mesh = currentShape.currentShapeMesh;
+            ChangeColliders();
+            
         }
     }
+    #endregion
+
+    #region Methods
     public void SpawnAnimation()
     {
         //Animacion con DoTwween para la reaparision
         Sequence animation = DOTween.Sequence();
-        animation.Append(transform.DOScale(scaleStart, timeDuration));
-        animation.Append(transform.DOScale(scaleEnd, timeDuration));
+        animation.Append(transform.DOScale(scaleStart, timeDuration)).SetEase(curve);
+        animation.Append(transform.DOScale(scaleEnd, timeDuration)).SetEase(curve);
+    }
+    private void ChangeColliders()
+    {
+        // Activar SphereCollider si el mesh es el de esfera
+        if (currentShape.currentShapeMesh == shapeMesh[0]) // Esfera
+        {
+            colliderSphere.enabled = true;
+            colliderCube.enabled = false;
+        }
+        else if (currentShape.currentShapeMesh == shapeMesh[1]) // Cubo
+        {
+            colliderSphere.enabled = false;
+            colliderCube.enabled = true;
+        }
+        else
+        {
+            // Por si hay otros shapes
+            colliderSphere.enabled = true;
+            colliderCube.enabled = true;
+        }
     }
     #endregion
-}
 
+}
