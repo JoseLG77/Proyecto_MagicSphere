@@ -17,7 +17,6 @@ public class ButtonManager : MonoBehaviour
         UIManager.Instance.IsGameplay = false;
         FadeManager.Instance.ChangeSceneFade(nameScene);
         Time.timeScale = 1.0f;
-        //FadeManager.Instance.ChangeSceneFade(nameScene);
     }
     public void ButtonActivePanel(GameObject activePanel)
     {
