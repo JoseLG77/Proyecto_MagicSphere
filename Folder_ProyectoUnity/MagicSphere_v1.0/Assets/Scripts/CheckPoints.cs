@@ -46,7 +46,7 @@ public class CheckPoints : MonoBehaviour
             if(other.GetComponent<PlayerController>() != null)
             {
                 Vector3 position = transform.position;
-                position.y -= 2.5f;
+                //position.y -= 2.5f;
                 other.GetComponent<PlayerController>().CheckPoint.position = position;
             }
         }
