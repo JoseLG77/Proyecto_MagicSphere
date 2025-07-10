@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "Level Graph", menuName = "Level Graph / Level Graph")]
 public class LevelGraphData : ScriptableObject
@@ -21,14 +22,17 @@ public class LevelGraphData : ScriptableObject
         {
             current.nextLevels.Add(next);
         }
-
     }
     //desbloquea los siguientes niveles
-    public void UnlockLevel(NodeLevelData nextLevel)
+    public void UnlockLevel(NodeLevelData nodeLevelData)
     {
-        foreach (var next in nextLevel.nextLevels)
+        foreach (var next in nodeLevelData.nextLevels)
         {
             next.isUnlocked = true;
+
+            string keyLevel = "Desbloqueado " + next.name;
+            PlayerPrefs.SetInt(keyLevel, 1);
         }
+        PlayerPrefs.Save(); //Save lo que hace es guardar todos los cambios
     }
 }

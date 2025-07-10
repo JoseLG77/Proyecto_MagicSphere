@@ -44,6 +44,23 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
+    public void ButtonContinue()
+    {
+        UIManager.Instance.panelResult.SetActive(false);
+        SceneManager.LoadScene("Levels");
+    }
+    public void ButtonBackLevel()
+    {
+        SceneManager.LoadScene("Menu");
+        UIManager.Instance.PanelSelecLevel.SetActive(false);
+        UIManager.Instance.panelMenu.SetActive(true);
+    }
+    public void ButtonPlay()
+    {
+        SceneManager.LoadScene("Levels");
+        UIManager.Instance.panelMenu.SetActive(false);
+        UIManager.Instance.PanelSelecLevel.SetActive(true);
+    }
 
     public void ExitButton()
     {

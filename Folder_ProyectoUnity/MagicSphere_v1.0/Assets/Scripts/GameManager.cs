@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<string> listTime;
     [SerializeField] private List<int> listScore;
     [SerializeField] private NodeCheckpoint[] checkPoint;
+    [SerializeField] private NodeLevelData[] NodeLevelData;
 
     private bool isPauseGame;
     private bool isFinishLevel;
@@ -44,18 +45,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-    private void OnEnable()
-    {
-        
-    }
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-
-    }
     public void InsertionSort(List<int> value)
     {
         for (int i = 0; i < value.Count; i++)
@@ -78,5 +67,9 @@ public class GameManager : MonoBehaviour
     {
         FinishLevel?.Invoke();
         Debug.Log("Se llamo el evento");
+    }
+    private void ReturnIsUnlockedLevel()
+    {
+
     }
 }

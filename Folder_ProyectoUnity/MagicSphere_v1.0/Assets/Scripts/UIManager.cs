@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject panelCredist;
     public GameObject panelGame;
     public GameObject panelResult;
+    [SerializeField] private GameObject panelSelecLevel;
     [Header("---Text---")]
     [SerializeField] private TextMeshProUGUI timeGame;
     [SerializeField] private TextMeshProUGUI scoreGame;
@@ -52,6 +53,11 @@ public class UIManager : MonoBehaviour
         get { return panelSettings; }
         set { panelSettings = value; }
     }
+    public GameObject PanelSelecLevel
+    {
+        get { return panelSelecLevel; }
+        set { panelSelecLevel = value; }
+    }
     #endregion
 
     #region Unity Methods
@@ -87,6 +93,7 @@ public class UIManager : MonoBehaviour
         panelCredist.SetActive(false);
         panelGame.SetActive(false);
         panelResult.SetActive(false);
+        panelSelecLevel.SetActive(false);
         isGameplay = false;
         isSettings = true;
     }

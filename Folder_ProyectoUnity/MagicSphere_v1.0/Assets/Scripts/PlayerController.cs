@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [Header("-----CheckPoint-----")]
     [SerializeField] private Transform checkPoint;
+    [SerializeField, Range(-3, 3)] private float Y;
     [Header("-----Shape-----")]
     [SerializeField] private Mesh[] shapeMesh;
     [Header("-----Animation-----")]
@@ -120,7 +121,8 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             transform.rotation = Quaternion.Euler(0, 0, 0);
             directionCurrentVelocity = Vector2.zero;
-            transform.position = checkPoint.position;
+            Vector3 newCheckPoint = new Vector3(checkPoint.position.x,checkPoint.position.y + Y);
+            transform.position = newCheckPoint;
             SpawnAnimation();
         }
     }
